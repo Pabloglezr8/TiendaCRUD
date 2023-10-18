@@ -93,11 +93,12 @@ input::placeholder{
 }
 
 footer{
+    text-align: center;
     height: 50px;
     padding: 20px;
     font-size: 20px;
     background-color: #34495E;
-    color: lightsalmon;
+    color: rgb(255, 160, 122);
     border-radius: 20px;
 
 }
@@ -105,8 +106,4 @@ footer{
 #contact{
     margin-top: 10px;
     display: inline-flex;
-}
-
-#tlf{
-    margin-left: 50px;
 }
