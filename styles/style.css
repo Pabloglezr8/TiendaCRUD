@@ -1,0 +1,112 @@
+@font-face {
+    font-family: Sandler;
+    src: url(/assets/fonts/Sandler\ Trial.otf);
+}
+
+@font-face {
+    font-family: Mulish;
+    src: url(/assets/fonts/Mulish-VariableFont_wght.ttf);
+}
+
+body{
+    font-family: Mulish;
+    background-color: #f0f0f0;
+}
+
+/*header{
+    height: 150px;
+    text-align: center;
+    background-image: url(/assets/headerbg.jpg);
+    background-position: 0px 160px;
+    background-size: 100% auto;
+}*/
+
+header{
+    height: 150px;
+    text-align: center;
+    background-color: #34495E;
+    border-radius: 20px;
+}
+
+h1{
+    position: relative;
+    top: 25px;
+    font-family: Sandler;
+    font-size: 70px;
+    color:lightsalmon;
+}
+
+div{
+    text-align: center;
+}
+
+input{
+    font-family: Mulish;
+    padding: 10px;
+    margin-top: 50px;
+    width: 500px;
+    border: solid lightsalmon;
+    border-radius: 50px;
+    box-shadow: 0px 0px  5px 1px lightsalmon;
+    outline: none;
+}
+
+input::placeholder{
+    color:lightsalmon
+}
+
+#searchbtn{
+    font-family: Mulish;
+    margin-left: 5px;
+    padding: 10px;
+    background: lightsalmon;
+    border: solid lightsalmon;
+    border-radius: 50px;
+    color: white;
+    cursor: pointer;
+}
+
+#searchbtn:hover{
+    background: none;
+    border: solid lightsalmon;
+    color: lightsalmon;
+}
+
+#searchbtn:active{
+    transform: translateY(2px);
+}
+
+#templbtn{
+    top: 50px;
+    margin: 10px;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+#templbtn:hover{
+    transform: scale(102%);
+}
+
+#templbtn:active{
+    transform: scale(100%);
+}
+
+footer{
+    height: 50px;
+    padding: 20px;
+    font-size: 20px;
+    background-color: #34495E;
+    color: lightsalmon;
+    border-radius: 20px;
+
+}
+
+#contact{
+    margin-top: 10px;
+    display: inline-flex;
+}
+
+#tlf{
+    margin-left: 50px;
+}
