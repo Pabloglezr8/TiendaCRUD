@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="wclassth=device-wclassth, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/styles/style.css">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -13,28 +13,75 @@
     <header>
         <h1>No Clothes</h1>
     </header>
-
     <div>
         <input type="text" placeholder="BUSCAR">
-        <button id="searchbtn">BUSCAR</button>
+        <button class="searchbtn">BUSCAR</button>
     </div>
 
-    <div id="navegador">
-        <button id="templbtn"><img src="/assets/camiseta.jpg" alt="Apartado camisetas"></button>
-        <button id="templbtn"><img src="/assets/pantalones.jpg" alt="Apartado Pantalones"></button>
-        <button id="templbtn"><img src="/assets/playeros.jpg" alt="Apartado Playeros"></button>
+    <aside class="side-wall">
+        <table>
+            <tr>
+              <th colspan="2">Nuestras Marcas</th>
+            </tr>
+            <tr>
+              <td>NIKE</td>
+              <td>PUMA</td>
+            </tr>
+            <tr>
+              <td>THE NORTH FACE</td>
+              <td>ADIDAS</td>
+            </tr>
+            <tr>
+              <td>NEW BALANCE</td>
+              <td>LEVIS</td>
+            </tr>
+            <tr>
+              <td>DOCKERS</td>
+              <td>VANS</td>
+            </tr>
+            <tr>
+              <td>SLATY CREW</td>
+              <td>COLUMBIA</td>
+            </tr>
+          </table>
+    </aside>
+
+    <div class="navegador">
+        <div class="nav-item">
+            <div class="title-btn">
+                <span>Camisetas</span>
+                <button class="templbtn"><img src="/assets/camiseta.jpg" alt="Apartado camisetas"></button>
+            </div>
+        </div>
+        <div class="nav-item" style="margin-left: 100px;">
+            <div class="title-btn">
+                <span>Pantalones</span>
+                <button class="templbtn"><img src="/assets/pantalones.jpg" alt="Apartado Pantalones"></button>
+            </div>
+        </div>
+        <div class="nav-item" style="margin-left: 100px;">
+            <div class="title-btn">
+                <span>Playeros</span>
+                <button class="templbtn"><img src="/assets/playeros.jpg" alt="Apartado Playeros"></button>
+            </div>
+        </div>
     </div>
+
+
+
 
     <footer>
-        <div id="contact">
-            <div id="foot"><i class="fa-solid fa-location-dot" style="color: #ffa07a;"></i> Calle Corrida 537</div>
-            <div id="foot"><i class="fa-brands fa-instagram" style="color: #ffa07a;"></i></div>
-            <div id="foot"><i class="fa-brands fa-twitter" style="color: #ffa07a;"></i></div>
-            <div id="foot"><i class="fa-solid fa-phone" style="color: #ffa07a;"></i>985 99 88 55 </div>
-        </div>
-
+        <p class="location"><i class="fa-solid fa-location-dot" style="color: #ffa07a;"></i> Calle Corrclassa 537</p>
+        <p class="insta"><i class="fa-brands fa-instagram" style="color: #ffa07a;"></i></p>
+        <p class="twtt"><i class="fa-brands fa-twitter" style="color: #ffa07a;"></i></p>
+        <p class="phone"><i class="fa-solid fa-phone" style="color: #ffa07a;"></i>985 99 88 55 </p>
     </footer>
+
     <script src="https://kit.fontawesome.com/c3db1c8a5f.js" crossorigin="anonymous"></script>
 </body>
 
 </html>
+<!-- <p class="locatin"><i class="fa-solclass fa-location-dot" style="color: #ffa07a;"></i> Calle Corrclassa 537</p>
+            <p class="inst"><i class="fa-brands fa-instagram" style="color: #ffa07a;"></i></p>
+            <p class="twtt"><i class="fa-brands fa-twitter" style="color: #ffa07a;"></i></p>
+            <p class="phone"><i class="fa-solclass fa-phone" style="color: #ffa07a;"></i>985 99 88 55 </p>-->
