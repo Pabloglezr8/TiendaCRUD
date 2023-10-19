@@ -1,5 +1,7 @@
-// Declarar un array para almacenar los productos
-const productos = [];
+let idCount = 1;
+
+// Crear un array para almacenar las camisetas
+const camisetasArray = [];
 
 function showForm() {
     const form = document.getElementById("product-form");
@@ -25,71 +27,53 @@ function addProduct() {
         return;
     }
 
-    // Crear una nueva fila en la tabla
-    const table = document.getElementById("product-table").getElementsByTagName('tbody')[0];
-    const newRow = table.insertRow(table.rows.length);
+    // Crear un objeto "camiseta"
+    const camiseta = {
+        id: idCount,
+        nombre: productName,
+        cantidad: parseInt(productQuantity),
+        precio: parseFloat(productPrice)
+    };
 
-    // Insertar celdas en la fila
-    const cell1 = newRow.insertCell(0);
-    const cell2 = newRow.insertCell(1);
-    const cell3 = newRow.insertCell(2);
+    // Incrementar el ID para la próxima camiseta
+    idCount++;
 
-    // Agregar datos a las celdas
-    cell1.innerHTML = productName;
-    cell2.innerHTML = productQuantity;
-    cell3.innerHTML = productPrice;
+    // Agregar la camiseta al array
+    camisetasArray.push(camiseta);
 
     // Limpiar los campos del formulario
     document.getElementById("product-name").value = "";
     document.getElementById("product-quantity").value = "";
     document.getElementById("product-price").value = "";
 
-    // Ocultar el formulario después de agregar el producto
-    const form = document.getElementById("product-form");
-    const button = document.getElementById("show-form-button");
-    form.style.display = "none";
-    button.innerText = "Añadir Producto";
+    // Actualizar la tabla
+    updateTable();
 }
 
+function updateTable() {
+    const tableBody = document.getElementById("table-body");
+    tableBody.innerHTML = ""; // Limpiar la tabla
 
-function updateProductTable() {
-    const table = document.getElementById("product-table").getElementsByTagName('tbody')[0];
-    table.innerHTML = "";
+    // Recorrer el array de camisetas y agregar cada una a la tabla
+    camisetasArray.forEach(camiseta => {
+        const row = document.createElement("tr");
+        const idCell = document.createElement("td");
+        const nameCell = document.createElement("td");
+        const quantityCell = document.createElement("td");
+        const priceCell = document.createElement("td");
 
-    for (const product of productos) {
-        const newRow = table.insertRow(table.rows.length);
-        const cell1 = newRow.insertCell(0);
-        const cell2 = newRow.insertCell(1);
-        const cell3 = newRow.insertCell(2);
 
-        cell1.innerHTML = product.name;
-        cell2.innerHTML = product.quantity;
-        cell3.innerHTML = product.price;
-    }
+        idCell.textContent = camiseta.id;
+        nameCell.textContent = camiseta.nombre;
+        quantityCell.textContent = camiseta.cantidad;
+        priceCell.textContent = camiseta.precio;
+
+
+        row.appendChild(idCell);
+        row.appendChild(nameCell);
+        row.appendChild(quantityCell);
+        row.appendChild(priceCell);
+
+        tableBody.appendChild(row);
+    });
 }
-
-
-
-function shearchProduct() {
-    const searchInput = document.getElementById("searchInput").value.toLowerCase();
-    const table = document.getElementsByTagName("table")[0];
-    const rows = table.getElementsByTagName("tr");
-  
-    for (let i = 1; i < rows.length; i++) {
-      const row = rows[i];
-      const nombreProducto = row.getElementsByTagName("td")[0].textContent.toLowerCase();
-      
-      if (nombreProducto.includes(searchInput)) {
-        const cantidad = row.getElementsByTagName("td")[1].textContent;
-        const precio = row.getElementsByTagName("td")[2].textContent;
-        alert(`Nombre del Producto: ${nombreProducto}\nCantidad: ${cantidad}\nPrecio: ${precio}`);
-        return; // Sale del bucle después de encontrar el primer producto
-      }
-    }
-  
-    // Si no se encuentra el producto, muestra una alerta de error
-    alert("Producto no encontrado.");
-  }
-
-
-  
