@@ -47,14 +47,15 @@
                 </div>
                 <div class="form-container">
                     <form id="product-form" style="display: none;">
-                        
-                        <input type="text" id="product-name" required placeholder="Nombre del Producto">
-                        
-                        <input type="number" id="product-quantity" required placeholder="Cantidad">
-                        
-                        <input type="number" id="product-price" required placeholder="Precio">
-                        
-                        <input type="button" value="Añadir Producto" onclick="addProduct()">
+
+                        <input type="text" class="input-form" id="product-name" required
+                            placeholder="Nombre del Producto">
+
+                        <input type="number" class="input-form" id="product-quantity" required placeholder="Cantidad">
+
+                        <input type="number" class="input-form" id="product-price" required placeholder="Precio">
+
+                        <input class="add-btn" type="button" value="Añadir Producto" onclick="addProduct()">
                     </form>
                 </div>
             </div>
@@ -62,8 +63,8 @@
         </section>
         <aside class="right">
             <div class="search">
-                <input class="input-template" type="text" id="searchInput" placeholder="BUSCAR">
-                <button class="searchbtn" onclick="shearchProduct()">BUSCAR</button>
+                <input class="search-template" type="text" id="searchInput" placeholder="BUSCAR">
+                <button class="search-btn" onclick="shearchProduct()">BUSCAR</button>
             </div>
         </aside>
     </div>
@@ -78,7 +79,9 @@
 
     <script src="https://kit.fontawesome.com/c3db1c8a5f.js" crossorigin="anonymous"></script>
     <script src="/scripts/add-product.js"></script>
-    <script src="/scripts/productos.js"></script>
+    <script type="module" src="/scripts/table-camisetas.js"></script>
+    <script src="/scripts/add-product.js"></script>
+
 </body>
 
 </html>

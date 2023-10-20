@@ -6,7 +6,6 @@ body{
     display: flex;
 }
 
-
 .home{
     font-size: 20px;
     width: 50px;
@@ -55,17 +54,16 @@ transform: scale(1.05);
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
     padding: 5px;
-    margin-top: 0;
     border: solid #34495E;
     border-top: solid lightsalmon;
+    margin-top: 0px;
     font-family: Sandler;
     font-size: 50px;
     text-align: center;
 
 }
 
-.input-template{
-    font-family: Mulish;
+.search-template{
     padding: 10px;
     width: 150px;
     border: solid lightsalmon;
@@ -74,29 +72,36 @@ transform: scale(1.05);
     outline: none;
 }
 
-#buttonEdit{
-    background-color: #34495E;
-}
-
-
-table{
-    width: 800px;
-
-}
-
 #show-form-button{
-    width:200px;
-    font-size: 20px;
-    margin-top: 50px;
-    padding: 5px;
     background-color: lightsalmon;
+    color: #f0f0f0;
+    padding: 5px;
     border: none;
     border-radius: 5px;
-    color: #f0f0f0;
-
+    font-size: 20px;
+    margin-top: 50px;
 }
 
-#product-form{
-    display: flex;
-    justify-content: center;
+.form-container{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.input-form{
+    padding: 5px;
+    border: solid lightsalmon;
+    border-radius: 10px;
+    outline: none;
+}
+
+.add-btn{
+    background-color: lightsalmon;
+    color: #f0f0f0;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+}
+
+.add-btn:active{
+    transform: translateY(2px);
 }

@@ -28,11 +28,19 @@ function addProduct() {
         return;
     }
 
+    const camiseta = {
+        id: idCount,
+        nombre: productName, 
+        cantidad: parseInt(productQuantity),
+        precio: parseFloat(productPrice)
+    }
+
     // Incrementar el ID para la próxima camiseta
     idCount++;
 
     // Agregar la camiseta al array
     camisetasArray.push(camiseta);
+
 
     // Limpiar los campos del formulario
     document.getElementById("product-name").value = "";
@@ -70,3 +78,5 @@ function updateTable() {
         tableBody.appendChild(row);
     });
 }
+
+
