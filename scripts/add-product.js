@@ -1,3 +1,4 @@
+
 let idCount = 1;
 
 // Crear un array para almacenar las camisetas
@@ -8,7 +9,7 @@ function showForm() {
     const button = document.getElementById("show-form-button");
 
     if (form.style.display === "none" || form.style.display === "") {
-        form.style.display = "block";
+        form.style.display = "inline";
         button.innerText = "Cancelar";
     } else {
         form.style.display = "none";
@@ -26,14 +27,6 @@ function addProduct() {
         alert("Por favor, complete todos los campos.");
         return;
     }
-
-    // Crear un objeto "camiseta"
-    const camiseta = {
-        id: idCount,
-        nombre: productName,
-        cantidad: parseInt(productQuantity),
-        precio: parseFloat(productPrice)
-    };
 
     // Incrementar el ID para la próxima camiseta
     idCount++;

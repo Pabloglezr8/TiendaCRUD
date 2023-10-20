@@ -1,8 +1,11 @@
-
+body{
+    font-family: Mulish;
+}
 
 .container{
     display: flex;
 }
+
 
 .home{
     font-size: 20px;
@@ -46,15 +49,15 @@ transform: scale(1.05);
 }
 
 
-.tile-section{
+.title-section{
     background-color: #34495E;
     color: lightsalmon;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
     padding: 5px;
+    margin-top: 0;
     border: solid #34495E;
     border-top: solid lightsalmon;
-    margin-top: 0px;
     font-family: Sandler;
     font-size: 50px;
     text-align: center;
@@ -73,4 +76,27 @@ transform: scale(1.05);
 
 #buttonEdit{
     background-color: #34495E;
+}
+
+
+table{
+    width: 800px;
+
+}
+
+#show-form-button{
+    width:200px;
+    font-size: 20px;
+    margin-top: 50px;
+    padding: 5px;
+    background-color: lightsalmon;
+    border: none;
+    border-radius: 5px;
+    color: #f0f0f0;
+
+}
+
+#product-form{
+    display: flex;
+    justify-content: center;
 }
