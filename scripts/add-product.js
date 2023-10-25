@@ -1,8 +1,15 @@
+import { camisetasArray } from "./productos.js";
 
-let idCount = 1;
+document.addEventListener("DOMContentLoaded", function() {
+    const showFormButton = document.getElementById("show-form-button");
+    const addProductButton = document.getElementById("add-product-button");
 
-// Crear un array para almacenar las camisetas
-const camisetasArray = [];
+    showFormButton.addEventListener("click", showForm);
+    addProductButton.addEventListener("click", addProduct); 
+});
+
+
+let idCount = 6;
 
 function showForm() {
     const form = document.getElementById("product-form");

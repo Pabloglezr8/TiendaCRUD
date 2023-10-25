@@ -43,7 +43,7 @@
 
             <div>
                 <div>
-                    <button id="show-form-button" onclick="showForm()">Añadir Producto</button>
+                    <button id="show-form-button">Añadir Producto</button>
                 </div>
                 <div class="form-container">
                     <form id="product-form" style="display: none;">
@@ -55,7 +55,7 @@
 
                         <input type="number" class="input-form" id="product-price" required placeholder="Precio">
 
-                        <input class="add-btn" type="button" value="Añadir Producto" onclick="addProduct()">
+                        <input class="add-btn" id="add-product-button" type="button" value="Añadir Producto">
                     </form>
                 </div>
             </div>
@@ -78,9 +78,8 @@
     </footer>
 
     <script src="https://kit.fontawesome.com/c3db1c8a5f.js" crossorigin="anonymous"></script>
-    <script src="/scripts/add-product.js"></script>
     <script type="module" src="/scripts/table-camisetas.js"></script>
-    <script src="/scripts/add-product.js"></script>
+    <script type="module" src="/scripts/add-product.js"></script>
 
 </body>
 

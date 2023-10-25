@@ -28,3 +28,4 @@ const playerosArray = [
 {id: 5, nombre: "Marcos", cantidad: parseInt(getRandomQuantity()), precio: parseFloat(10.00)},
 ];
 export {playerosArray};
+
