@@ -1,11 +1,3 @@
-body{
-    font-family: Mulish;
-}
-
-.container{
-    display: flex;
-}
-
 .home{
     font-size: 20px;
     width: 50px;
@@ -14,7 +6,6 @@ body{
     background-color: #34495E;
     border: none;
 }
-
 .home:hover{
 transform: scale(1.05);
 }
@@ -48,7 +39,7 @@ transform: scale(1.05);
 }
 
 
-.title-section{
+.title{
     background-color: #34495E;
     color: lightsalmon;
     border-bottom-left-radius: 20px;

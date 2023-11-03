@@ -63,27 +63,104 @@ function updateTable() {
     tableBody.innerHTML = ""; // Limpiar la tabla
 
     // Recorrer el array de camisetas y agregar cada una a la tabla
-    camisetasArray.forEach(camiseta => {
-        const row = document.createElement("tr");
+    camisetasArray.forEach(element => {
+         const row = document.createElement("tr");
         const idCell = document.createElement("td");
         const nameCell = document.createElement("td");
         const quantityCell = document.createElement("td");
         const priceCell = document.createElement("td");
 
+        const editCell = document.createElement("td");
+        const editButton = document.createElement("button");
+        editButton.innerHTML = "Editar";
 
-        idCell.textContent = camiseta.id;
-        nameCell.textContent = camiseta.nombre;
-        quantityCell.textContent = camiseta.cantidad;
-        priceCell.textContent = camiseta.precio;
+        const saveButton = document.createElement("button");
+        saveButton.innerHTML = "Aceptar";
+        saveButton.id = "saveButton";
+        saveButton.style.display = "none";
 
+
+        const delCell = document.createElement("td");
+        const delButton = document.createElement("button");
+        delButton.innerHTML = "Eliminar";
+
+        idCell.textContent = element.id;
+        nameCell.textContent = element.nombre;
+        quantityCell.textContent = element.cantidad;
+        priceCell.textContent = element.precio;
+
+        // Agregar evento para el botón de editar
+        editButton.addEventListener("click", () => {
+            editProduct(element.id, nameCell, quantityCell, priceCell, editButton);
+        });
+
+        // Agregar evento para el botón de eliminar
+        delButton.addEventListener("click", () => {
+            const id= element.id;
+            deleteProduct(id)
+            console.log("Eliminar elemento con ID " + element.id);
+        });
+
+        editCell.appendChild(editButton);
+        delCell.appendChild(delButton);
 
         row.appendChild(idCell);
         row.appendChild(nameCell);
         row.appendChild(quantityCell);
         row.appendChild(priceCell);
+        row.appendChild(editCell);
+        row.appendChild(delCell);
 
         tableBody.appendChild(row);
     });
 }
 
+updateTable()
+
+function deleteProduct(id) {
+    const index = camisetasArray.findIndex(product => product.id === id);
+    if (index !== -1) {
+        camisetasArray.splice(index, 1); // Elimina el elemento del array
+        updateTable(); // Actualiza la tabla después de la eliminación
+    }
+}
+
+
+function editProduct(id, nameCell, quantityCell, priceCell, editButton) {
+    // Habilita la edición de los campos de nombre, cantidad y precio
+    nameCell.contentEditable = true;
+    quantityCell.contentEditable = true;
+    priceCell.contentEditable = true;
+
+    // Cambia el botón "Editar" a "Guardar Cambios"
+    editButton.innerHTML = "Guardar Cambios";
+    editButton.removeEventListener("click", editProduct);
+    editButton.addEventListener("click", () => {
+        saveProduct(id, nameCell, quantityCell, priceCell, editButton);
+    });
+}
+
+
+
+function saveProduct(id, nameCell, quantityCell, priceCell, editButton) {
+    // Guarda los cambios en el array de productos
+    const product = camisetasArray.find(product => product.id === id);
+    if (product) {
+        product.nombre = nameCell.textContent;
+        product.cantidad = parseInt(quantityCell.textContent);
+        product.precio = parseFloat(priceCell.textContent);
+    }
+
+    // Deshabilita la edición de los campos
+    nameCell.contentEditable = false;
+    quantityCell.contentEditable = false;
+    priceCell.contentEditable = false;
+
+    // Cambia el botón de "Guardar Cambios" a "Editar"
+    editButton.innerHTML = "Editar";
+    editButton.removeEventListener("click", saveProduct);
+    editButton.addEventListener("click", () => {
+        editProduct(id, nameCell, quantityCell, priceCell, editButton);
+    });
+}
 

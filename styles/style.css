@@ -72,6 +72,7 @@ h1 {
     display: flex;
     justify-content: center;
     text-align: center;
+    margin-top: 20px;
     font-weight: bold;
     background-color: #34495E;
     border-radius: 10px;
@@ -81,99 +82,13 @@ h1 {
 
 .container{
     display: flex;
+    margin-top: 0px;
 }
 
-.search{
+.tittle-container{
     display: flex;
     justify-content: center;
-    height: 40px;
-    margin-top: 20px;
-}
-
-.search-index{
-    font-family: Mulish;
-    padding: 10px;
-    width: 500px;
-    border: solid lightsalmon;
-    border-radius: 50px;
-    box-shadow: 0px 0px 5px 1px lightsalmon;
-    outline: none;
-}
-
-input::placeholder {
-    color: lightsalmon;
-    font-family: Mulish;
-}
-
-.search-btn {
-    font-family: Mulish;
-    margin-left: 5px;
-    padding: 10px;
-    background: lightsalmon;
-    border: solid lightsalmon;
-    border-radius: 50px;
-    color: white;
-    cursor: pointer;
-}
-
-.search-btn:hover {
-    background: none;
-    border: solid lightsalmon;
-    color: lightsalmon;
-}
-
-.search-btn:active {
-    transform: translateY(2px);
-}
-
-.navegador {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    margin-top: 80px;
-    margin-bottom: 80px;
-}
-
-.title-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 246px;
-}
-
-.title-btn span {
-    text-align: center;
-    padding: 2px;
-    height: 150px;
-    background-color: #34495E;
-    color: #f0f0f0;
-    border-radius: 5px;
-    writing-mode: vertical-rl;
-    font-weight: bold;
-    margin-right: 0px;
-}
-
-
-.templbtn {
-    border: none;
-    background: none;
-    cursor: pointer;
-}
-
-img {
-    border-left: solid #34495E;
-    border-bottom: solid #34495E;
-    border-width: 5px;
-    width: 150px;
-    height: 230px;
-}
-
-img:hover{
-    border-left: solid lightsalmon;
-    border-bottom: solid lightsalmon;
-    border-width: 5px;
+    margin-top: 0px;
 }
 
 .right{
@@ -188,6 +103,7 @@ img:hover{
 }
 
 .marcas{
+    margin-top: 20px;
     min-width: 200px;
     text-align: center;
     height: 300px;

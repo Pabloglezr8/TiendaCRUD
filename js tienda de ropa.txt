@@ -1,4 +1,4 @@
-import { playerosArray } from "./productos.js";
+import { camisetasArray } from "./productos.js";
 
 document.addEventListener("DOMContentLoaded", function() {
     const showFormButton = document.getElementById("show-form-button");
@@ -46,7 +46,7 @@ function addProduct() {
     idCount++;
 
     // Agregar la camiseta al array
-    playerosArray.push(camiseta);
+    camisetasArray.push(camiseta);
 
 
     // Limpiar los campos del formulario
@@ -63,7 +63,7 @@ function updateTable() {
     tableBody.innerHTML = ""; // Limpiar la tabla
 
     // Recorrer el array de camisetas y agregar cada una a la tabla
-    playerosArray.forEach(camiseta => {
+    camisetasArray.forEach(camiseta => {
         const row = document.createElement("tr");
         const idCell = document.createElement("td");
         const nameCell = document.createElement("td");
@@ -87,3 +87,65 @@ function updateTable() {
 }
 
 
+
+
+
+
+
+
+
+
+if (window.location.hostname === "http://127.0.0.1:5500/templates/camisetas.html") {
+    addProduct(camisetasArray)
+    updateTable(camisetasArray)
+
+} else if (window.location.hostname === "http://127.0.0.1:5500/templates/pantalones.html") {
+    addProduct(pantalonesArray)
+    updateTable(pantalonesArray)
+
+
+} else if (window.location.hostname === "http://127.0.0.1:5500/templates/playeros.html") {
+    addProduct(playerosArray)
+    updateTable(playerosArray)
+
+}
+
+
+function updateTable() {
+    const tableBody = document.getElementById("table-body");
+    tableBody.innerHTML = ""; // Limpiar la tabla
+
+    // Recorrer el array de camisetas y agregar cada una a la tabla
+    productArray.forEach(element => {
+        const row = document.createElement("tr");
+        const idCell = document.createElement("td");
+        const nameCell = document.createElement("td");
+        const quantityCell = document.createElement("td");
+        const priceCell = document.createElement("td");
+
+
+        idCell.textContent = element.id;
+        nameCell.textContent = element.nombre;
+        quantityCell.textContent = element.cantidad;
+        priceCell.textContent = element.precio;
+
+
+        row.appendChild(idCell);
+        row.appendChild(nameCell);
+        row.appendChild(quantityCell);
+        row.appendChild(priceCell);
+
+        tableBody.appendChild(row);
+    });
+}
+
+
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    const showFormButton = document.getElementById("show-form-button");
+    const addProductButton = document.getElementById("add-product-button");
+
+    showFormButton.addEventListener("click", showForm);
+    addProductButton.addEventListener("click", addProduct); 
+});
