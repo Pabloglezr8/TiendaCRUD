@@ -1,3 +1,7 @@
+//Autor Pablo Gonzalez Ruiz
+// https://github.com/Pabloglezr8/TiendaCRUD.git
+
+
 import { camisetasArray } from "./productos.js";
 
 //al ser un archivo module es necesario cargar los botones a utilizar para que se pueda llamar a las funciones
