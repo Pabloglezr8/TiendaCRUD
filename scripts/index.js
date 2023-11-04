@@ -1,4 +1,4 @@
-//Autor Pablo Gonzalez Ruiz
+//Autor: Pablo Gonzalez Ruiz
 // https://github.com/Pabloglezr8/TiendaCRUD.git
 
 
