@@ -1,5 +1,6 @@
 import { camisetasArray } from "./productos.js";
 
+//al ser un archivo module es necesario cargar los botones a utilizar para que se pueda llamar a las funciones
 document.addEventListener("DOMContentLoaded", function () {
     const showFormButton = document.getElementById("show-form-button");
     const addProductButton = document.getElementById("add-product-button");
@@ -13,6 +14,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 let idCount = 6;
 
+//función que nos permite desplegar el formulario donde se ingresan 
+//las características de nuetro producto y el boton de añadir productopara insertarlo en la tabla
 function showForm() {
     const form = document.getElementById("product-form");
     const button = document.getElementById("show-form-button");
@@ -26,6 +29,8 @@ function showForm() {
     }
 }
 
+
+//función agregada al boton añadir producto que ingresa un objeto camiseta a la tabla
 function addProduct() {
     const productName = document.getElementById("product-name").value;
     const productQuantity = document.getElementById("product-quantity").value;
@@ -72,13 +77,16 @@ function updateTable() {
         const priceCell = document.createElement("td");
 
         const editCell = document.createElement("td");
+        editCell.className = "cellButton"
         const editButton = document.createElement("button");
         editButton.innerHTML = "Editar";
-        editButton.className = "editButton"
+        editButton.className = "tableButton"
 
         const delCell = document.createElement("td");
+        delCell.className = "cellButton"
         const delButton = document.createElement("button");
         delButton.innerHTML = "Eliminar";
+        delButton.className = "tableButton"
 
         idCell.textContent = element.id;
         nameCell.textContent = element.nombre;
@@ -130,35 +138,54 @@ function editProduct(id, nameCell, quantityCell, priceCell, editButton) {
 
     // Cambia el botón "Editar" a "Guardar Cambios"
     editButton.innerHTML = "Guardar Cambios";
-    editButton.className= "saveButton"
+    editButton.className = "saveButton"
     editButton.removeEventListener("click", editProduct);
     editButton.addEventListener("click", () => {
         saveProduct(id, nameCell, quantityCell, priceCell, editButton);
     });
 }
 
-
+//funcion validar los cambios en las características del producto y guardarlos en el array
 function saveProduct(id, nameCell, quantityCell, priceCell, editButton) {
     // Guarda los cambios en el array de productos
+
     const product = camisetasArray.find(product => product.id === id);
-    if (product) {
+    if (isNaN(product)) {
         product.nombre = nameCell.textContent;
-        product.cantidad = parseInt(quantityCell.textContent);
-        product.precio = parseFloat(priceCell.textContent);
+    }else{
+        alert("Nombre no válido")
     }
 
-    // Deshabilita la edición de los campos
-    nameCell.contentEditable = false;
-    quantityCell.contentEditable = false;
-    priceCell.contentEditable = false;
+    const quantity = parseInt(quantityCell.textContent)
+    if (!isNaN(quantity)) {
+        product.cantidad = quantity;
+    } else {
+        alert("Cantidad no válida")
+        return
+    }
 
-    // Cambia el botón de "Guardar Cambios" a "Editar"
-    editButton.innerHTML = "Editar";
-    editButton.className = "editButton"
-    editButton.removeEventListener("click", saveProduct);
-    editButton.addEventListener("click", () => {
-        editProduct(id, nameCell, quantityCell, priceCell, editButton);
-    });
+    const price = parseFloat(priceCell.textContent);
+    if (!isNaN(price)) {
+        product.precio = price;
+    } else {
+        alert("Precio no válido")
+        return
+    }
+
+    if (product && quantity && price) {
+        // Deshabilita la edición de los campos
+        nameCell.contentEditable = false;
+        quantityCell.contentEditable = false;
+        priceCell.contentEditable = false;
+
+        // Cambia el botón de "Guardar Cambios" a "Editar"
+        editButton.innerHTML = "Editar";
+        editButton.className = "tableButton"
+        editButton.removeEventListener("click", saveProduct);
+        editButton.addEventListener("click", () => {
+            editProduct(id, nameCell, quantityCell, priceCell, editButton);
+        });
+    }
 }
 
 
@@ -174,7 +201,7 @@ function searchProduct() {
         const productQuantity = foundProducts.map(product => product.cantidad);
         const productPrice = foundProducts.map(product => product.precio);
 
-        alert(`Productos encontrados:\nId: ${productId} \tNombre: ${productName} \tCantidad ${productQuantity} \tPrecio: ${productPrice}\n`);
+        alert(`Productos encontrados:\nId: ${productId}     Nombre: ${productName}     Cantidad ${productQuantity}     Precio: ${productPrice}\n`);
     } else {
         alert("No se encontraron productos con ese nombre.");
     }
