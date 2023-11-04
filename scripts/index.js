@@ -1,11 +1,13 @@
 import { camisetasArray } from "./productos.js";
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     const showFormButton = document.getElementById("show-form-button");
     const addProductButton = document.getElementById("add-product-button");
+    const searchButton = document.getElementById("searchButton");
 
     showFormButton.addEventListener("click", showForm);
-    addProductButton.addEventListener("click", addProduct); 
+    addProductButton.addEventListener("click", addProduct);
+    searchButton.addEventListener("click", searchProduct);
 });
 
 
@@ -37,7 +39,7 @@ function addProduct() {
 
     const camiseta = {
         id: idCount,
-        nombre: productName, 
+        nombre: productName,
         cantidad: parseInt(productQuantity),
         precio: parseFloat(productPrice)
     }
@@ -47,7 +49,6 @@ function addProduct() {
 
     // Agregar la camiseta al array
     camisetasArray.push(camiseta);
-
 
     // Limpiar los campos del formulario
     document.getElementById("product-name").value = "";
@@ -64,7 +65,7 @@ function updateTable() {
 
     // Recorrer el array de camisetas y agregar cada una a la tabla
     camisetasArray.forEach(element => {
-         const row = document.createElement("tr");
+        const row = document.createElement("tr");
         const idCell = document.createElement("td");
         const nameCell = document.createElement("td");
         const quantityCell = document.createElement("td");
@@ -73,12 +74,7 @@ function updateTable() {
         const editCell = document.createElement("td");
         const editButton = document.createElement("button");
         editButton.innerHTML = "Editar";
-
-        const saveButton = document.createElement("button");
-        saveButton.innerHTML = "Aceptar";
-        saveButton.id = "saveButton";
-        saveButton.style.display = "none";
-
+        editButton.className = "editButton"
 
         const delCell = document.createElement("td");
         const delButton = document.createElement("button");
@@ -96,7 +92,7 @@ function updateTable() {
 
         // Agregar evento para el botón de eliminar
         delButton.addEventListener("click", () => {
-            const id= element.id;
+            const id = element.id;
             deleteProduct(id)
             console.log("Eliminar elemento con ID " + element.id);
         });
@@ -125,7 +121,7 @@ function deleteProduct(id) {
     }
 }
 
-
+//esta funcion nos permite editar el producto directamente en la tabala
 function editProduct(id, nameCell, quantityCell, priceCell, editButton) {
     // Habilita la edición de los campos de nombre, cantidad y precio
     nameCell.contentEditable = true;
@@ -134,12 +130,12 @@ function editProduct(id, nameCell, quantityCell, priceCell, editButton) {
 
     // Cambia el botón "Editar" a "Guardar Cambios"
     editButton.innerHTML = "Guardar Cambios";
+    editButton.className= "saveButton"
     editButton.removeEventListener("click", editProduct);
     editButton.addEventListener("click", () => {
         saveProduct(id, nameCell, quantityCell, priceCell, editButton);
     });
 }
-
 
 
 function saveProduct(id, nameCell, quantityCell, priceCell, editButton) {
@@ -158,9 +154,30 @@ function saveProduct(id, nameCell, quantityCell, priceCell, editButton) {
 
     // Cambia el botón de "Guardar Cambios" a "Editar"
     editButton.innerHTML = "Editar";
+    editButton.className = "editButton"
     editButton.removeEventListener("click", saveProduct);
     editButton.addEventListener("click", () => {
         editProduct(id, nameCell, quantityCell, priceCell, editButton);
     });
 }
 
+
+// Función para buscar un producto por su nombre
+function searchProduct() {
+    const searchInput = document.getElementById("searchInput").value.toLowerCase();
+
+    const foundProducts = camisetasArray.filter(product => product.nombre.toLowerCase().includes(searchInput));
+
+    if (foundProducts.length > 0) {
+        const productId = foundProducts.map(product => product.id);
+        const productName = foundProducts.map(product => product.nombre);
+        const productQuantity = foundProducts.map(product => product.cantidad);
+        const productPrice = foundProducts.map(product => product.precio);
+
+        alert(`Productos encontrados:\nId: ${productId} \tNombre: ${productName} \tCantidad ${productQuantity} \tPrecio: ${productPrice}\n`);
+    } else {
+        alert("No se encontraron productos con ese nombre.");
+    }
+
+    searchInput.value = "";
+}

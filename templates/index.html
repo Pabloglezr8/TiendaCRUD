@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/styles/style.css">
-    <link rel="stylesheet" href="/styles/template-styles.css">
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="/styles/possition.css">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
 </head>
 
@@ -18,14 +19,12 @@
     <div class="container">
         <aside class="left">
             <div class="sites-button">
-                <a href="/index.html"><button class="home"><i class="fa-solid fa-house"
-                            style="color: #ffa07a;"></i></button></a>
-                            <div class="contact">
-                                <div class="contact-title">Quienes Somos</div>
-                                <div class="contact-body"> Somos una pequeña tienda situada en la Calle Corrida
-                                    donde puedes encontrar camisetas exclusivas de tus mejores marcas.
-                                </div>
-                            </div>
+                <div class="contact">
+                    <div class="contact-title">Quienes Somos</div>
+                    <div class="contact-body"> Somos una pequeña tienda situada en la Calle Corrida
+                        donde puedes encontrar camisetas exclusivas de tus mejores marcas.
+                    </div>
+                </div>
         </aside>
         <section>
             <div class="tittle-container">
@@ -62,38 +61,38 @@
                     </form>
                 </div>
             </div>
+            <div class="search">
+                <input class="search-input" type="text" id="searchInput" placeholder="Nombre del Producto">
+                <button class="search-btn" id="searchButton">Buscar</button>
+            </div>
 
         </section>
         <aside class="right">
-            <div class="search">
-                <input class="search-template" type="text" id="searchInput" placeholder="BUSCAR">
-                <button class="search-btn" onclick="shearchProduct()">BUSCAR</button>
-            </div>
             <table class="marcas">
                 <tr>
-                  <th colspan="2">Nuestras Marcas</th>
+                    <th colspan="2">Nuestras Marcas</th>
                 </tr>
                 <tr>
-                  <td>Nike</td>
-                  <td>Adidas</td>
+                    <td>Nike</td>
+                    <td>Adidas</td>
                 </tr>
                 <tr>
-                  <td>Vans</td>
-                  <td>New Balance</td>
+                    <td>Vans</td>
+                    <td>New Balance</td>
                 </tr>
                 <tr>
-                  <td>The North Face</td>
-                  <td>Volcom</td>
+                    <td>The North Face</td>
+                    <td>Volcom</td>
                 </tr>
                 <tr>
-                  <td>Columbia</td>
-                  <td>Puma</td>
+                    <td>Columbia</td>
+                    <td>Puma</td>
                 </tr>
                 <tr>
-                  <td>Dockers</td>
-                  <td>Levis</td>
+                    <td>Dockers</td>
+                    <td>Levis</td>
                 </tr>
-              </table>
+            </table>
         </aside>
     </div>
 
@@ -106,7 +105,7 @@
     </footer>
 
     <script src="https://kit.fontawesome.com/c3db1c8a5f.js" crossorigin="anonymous"></script>
-    <script type="module" src="/scripts/add-camisetas.js"></script>
+    <script type="module" src="/scripts/index.js"></script>
 
 
 </body>
