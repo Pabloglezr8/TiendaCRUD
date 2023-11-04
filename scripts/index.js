@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-let idCount = 7;
+let idCount = 8;
 
 //función que nos permite desplegar el formulario donde se ingresan 
 //las características de nuetro producto y el boton de añadir productopara insertarlo en la tabla
@@ -145,7 +145,7 @@ function searchProduct() {
         const productQuantity = foundProducts.map(product => product.cantidad);
         const productPrice = foundProducts.map(product => product.precio);
         
-        alert(`Productos encontrados:\nId: ${productId}     Nombre: ${productName}     Cantidad ${productQuantity}     Precio: ${productPrice}\n`);
+        alert(`Productos encontrados:\nId: ${productId}     Nombre: ${productName}     Cantidad: ${productQuantity}     Precio: ${productPrice}\n`);
     } else {
         alert("No se encontraron productos con ese nombre.");
     }
