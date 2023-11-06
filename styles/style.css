@@ -10,10 +10,8 @@
 
 body {
     font-size: 20px;
-    width: 99vw;
-    height: 98vh;
     font-family: Mulish;
-    background:linear-gradient(to top, rgb(247, 176, 148) , rgb(240, 240, 240) 20%)
+    background: radial-gradient(#f0f0f0 60%, #5c5b5b);
 }
 
 img{
