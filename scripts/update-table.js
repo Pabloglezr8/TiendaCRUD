@@ -65,10 +65,8 @@ export function updateTable(objetos) {
                 if (index !== -1) {
                     objetos.splice(index, 1);
                 }
-
                 row.remove();
             }
-
             updateTable(objetos)
     
         });
@@ -78,7 +76,9 @@ export function updateTable(objetos) {
 
             saveButton.style.display = "inline"
             editButton.style.display = "none"
+
         })
+        
         saveButton.addEventListener("click", () => {
             saveProduct(element.id, nameCell, quantityCell, priceCell)
             
